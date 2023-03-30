@@ -1,4 +1,4 @@
-export function post(props) {
+export function Post(props) {
     return (
         <div>
             <strong>{props.author}</strong>
