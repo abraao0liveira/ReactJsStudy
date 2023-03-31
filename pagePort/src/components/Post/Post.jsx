@@ -25,6 +25,15 @@ export function Post() {
                     <a href="">#github</a>{' '}
                 </p>
             </div>
+
+            <form className={styles.comentForm}>
+                <strong>Deixe seu feedback</strong>
+
+                <textarea placeholder='Deixe seu comentário'></textarea>
+                <footer>
+                    <button type='submit'>Publicar</button>
+                </footer>
+            </form>
         </article>
     )
 }
