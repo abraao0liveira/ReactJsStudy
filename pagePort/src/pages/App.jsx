@@ -1,8 +1,9 @@
-import { Post } from './Post'
-import '../styles/global.css'
+import { Post } from '../components/Post/Post'
 import { Header } from '../components/Header/Header'
-import styles from './App.module.css'
 import { Sidebar } from '../components/Sidebar/Sidebar'
+
+import styles from './App.module.css'
+import '../styles/global.css'
 
 export function App() {
 
@@ -14,10 +15,8 @@ export function App() {
         <Sidebar />
 
         <main>
-          <Post 
-          author="Abraão Oliveira" 
-          content="Olá, meu nome é Abraão Oliveira e eu sou um desenvolvedor full-stack." 
-          />
+          <Post />
+          <Post />
         </main>
       </div>
     </div>
