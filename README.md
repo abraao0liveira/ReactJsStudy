@@ -1,2 +1,2 @@
 # ReactJsStudy
- Estudo de fundamentos em ReactJs.
+ Aplicações em ReactJs.
