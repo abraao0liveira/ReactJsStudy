@@ -13,7 +13,7 @@ export function Sidebar() {
                 <img className={styles.avatar} src="https://github.com/abraao0liveira.png" />
 
                 <strong>Abraão Oliveira</strong>
-                <span>Web Developer</span>
+                <span>Full-Stack Developer</span>
             </div>
 
             <footer>
