@@ -7,4 +7,16 @@
     grid-template-columns: 256px 1fr; /*duas colunas, sidebar e post, uma fix e um adptavel*/
     gap: 2rem;
     align-items: flex-start;
+
+    margin-left: auto; /*centralizar*/
+    margin-right: auto; /*centralizar*/
+}
+
+@media (max-width: 768px) { 
+    html {
+        font-size: 87.5%; /*14px*/
+    }
+    .wrapper {
+        grid-template-columns: 1fr; /*uma coluna, post, adaptavel*/
+    }
 }
