@@ -1,31 +1,47 @@
 import { Avatar } from '../Avatar/Avatar';
 import { Comment } from '../Comment/Comment';
+
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 import styles from './Post.module.css';
 
-export function Post() {
+export function Post({author, content, publishedAt}) {
+
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {locale: ptBR});
+    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true
+    });
+
     return(
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src="https://github.com/abraao0liveira.png" />
+                    <Avatar src={author.avatarUrl} />
                     <div className={styles.authorInfo}>
-                        <strong>Abraão Oliveira</strong>
-                        <span>Desenvolvedor Full-Stack</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
 
-                <time title="31 de Março às 00:24h" dateTime='2023-03-31 00:24:30'>Publicado há 1h</time>
+                <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+                    {publishedDateRelativeToNow}
+                </time>
             </header>
 
             <div className={styles.content}>
-                <p>Fala galera!👋</p>
-                <p>Estou muito feliz em poder compartilhar com vocês o meu primeiro post no blog.</p>
-                <p>link para portífolio: ⚡<a href="https:/github.com/abraao0liveira">link GitHub</a>⚡</p>
-                <p>Espero que gostem!</p>
-                <p>
-                    <a href="">#novopost</a>{' '}
-                    <a href="">#github</a>{' '}
-                </p>
+                {content.map(line => {
+                    if (line.type === 'paragraph') {
+                        return <p>{line.content}</p>
+                    }
+                    else if (line.type === 'link') {
+                        return <p><a href='#'>{line.content}</a></p>
+                    }
+                    else if (line.type === 'hashtag') {
+                        return <a href='#'>{line.content}</a>
+                    }
+                })}
             </div>
 
             <form className={styles.comentForm}>
