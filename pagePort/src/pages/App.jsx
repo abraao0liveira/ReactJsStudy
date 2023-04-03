@@ -33,7 +33,7 @@ export function App() {
         role: "Desenvolvedor Back-End"
       },
       content: [
-        { type: 'paragraph', content: 'Fala galera!👋' },
+        { type: 'paragraph', content: 'Fala galera!' },
       ],
       publishedAt: new Date('2023-04-01 20:00:00')
     },
@@ -50,6 +50,7 @@ export function App() {
           {posts.map(post => { 
             return (
               <Post 
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
