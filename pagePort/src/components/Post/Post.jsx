@@ -29,12 +29,23 @@ export function Post({author, content, publishedAt}) {
     }
 
     function handleNewCommentChange() {
+        event.target.setCustomValidity('');
         setNewCommentText(event.target.value);
     }
 
-    function deleteComment(comment) {
-        console.log('Deletar comentário')
+    function handleNewCommentInvalid() {
+        event.target.setCustomValidity('O comentário não pode ficar em branco');
     }
+
+    function deleteComment(commentToDelete) {
+        const commentsWithoutDeletedOne = comments.filter(comment => {
+            return comment !== commentToDelete;
+        }) 
+
+        setComments(commentsWithoutDeletedOne);
+    }
+
+    const isNewCommentEmpty = newCommentText.length === 0;
 
     return(
         <article className={styles.post}>
@@ -69,10 +80,19 @@ export function Post({author, content, publishedAt}) {
             <form onSubmit={handleCreateNewComment} className={styles.comentForm}>
                 <strong>Deixe seu feedback</strong>
 
-                <textarea name="comment" placeholder='Deixe seu comentário' value={newCommentText} onChange={handleNewCommentChange}/>
+                <textarea
+                 name="comment" placeholder='Deixe seu comentário' 
+                 value={newCommentText} 
+                 onChange={handleNewCommentChange}
+
+                 onInvalid={handleNewCommentInvalid}
+                 required
+                />
 
                 <footer>
-                    <button type='submit'>Publicar</button>
+                    <button type='submit' disabled={isNewCommentEmpty}>
+                        Publicar
+                    </button>
                 </footer>
             </form>
 
