@@ -28,12 +28,12 @@ export function App() {
     {
       id: 2,
       author: {
-        avatarUrl: "https://github.com/davicotting.png",
-        name: "Davi Cotting",
-        role: "Desenvolvedor Back-End"
+        avatarUrl: "https://thicc.mywaifulist.moe/waifus/18127/7b673b37bc9076e7872b5259d5a61c7bf067c8ffb37a39409578fbe58c6cb9ab_thumb.jpg",
+        name: "Sophie Hatter",
+        role: "Chapeleira"
       },
       content: [
-        { type: 'paragraph', content: 'Fala galera!' },
+        { type: 'paragraph', content: 'Oi pessoal.' },
       ],
       publishedAt: new Date('2023-04-01 20:00:00')
     },
