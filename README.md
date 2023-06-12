@@ -7,12 +7,11 @@
 # Como rodar o código?
 
 ## Pré-requisitos
-- NodeJS
 - NPM
 
 ## [1] Iniciar o front
 ```
-cd ./pomodoroTimer
+cd ./ReactStudy
 npm install
 npm run dev
 ```
